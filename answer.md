@@ -18,10 +18,10 @@ NNN:12
 Prblem delta:
 AAA:
 
-queue->last->next = node;
+	queue->last->next = node;
 BBB:
 
-new_header->value;
+	new_header->value;
 CCC:
 
 	queue->first->next = new_header->next;
@@ -31,12 +31,14 @@ CCC:
 		queue->last = queue->first;
 	mtx_unlock(queue->last_mutex);
 
-DISCUSSION
+	DISCUSSION
 	{ 
 		Main design error is the con_pop may have problem popping the last node. If node is to be removed and new_header is to be the new first node in queue, and deciding from whether the new_header is NULL to return NULL makes it impossible to pop the last node.
 		Therefore, the first dummy node in the queue should never be deleted or popped. We should use the next one as the start of remaining nodes to do the operation.
 		My con_pop will be like
-		```
+	}
+	
+	```
 		void *con_pop_refined(con_queue_t *queue)
 		{
 			mtx_lock(queue->first_mutex);
@@ -65,6 +67,5 @@ DISCUSSION
 			return return_value;
 		}
 
-		```
-	}
+	```
 
