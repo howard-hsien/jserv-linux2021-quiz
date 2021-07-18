@@ -35,7 +35,8 @@ NNN:12
 
 ------
 
-Problem delta:
+#### Problem delta:
+
 AAA:
 
 	queue->last->next = node;
@@ -122,9 +123,24 @@ YYY:
 
 #### Problem eta:
 
+III:
+
+```
+target_fd, POLLIN, 0
+```
 
 
 
+JJJ:
+
+```
+cl_fd, POLLIN, 0
+```
+
+**DISCUSSION**
+
+1. 解釋上述程式碼運作原理
+2. 以 [epoll](https://man7.org/linux/man-pages/man7/epoll.7.html) 系統呼叫改寫程式碼，並設計實驗來驗證 proxy 程式碼的效率
 
 
 
