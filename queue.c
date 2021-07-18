@@ -186,7 +186,7 @@ void *con_pop_refined(con_queue_t *queue)
 {
     mtx_lock(queue->first_mutex);
 	
-    node_t *dummy = queue->first;             /* First: dummy node */ 
+    node_t *dummy = queue->first;        /* First: dummy node */ 
     node_t *node = queue->first->next;  /* Node to be removed */
 
     if (!node) {
